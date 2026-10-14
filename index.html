@@ -27,7 +27,8 @@ img{display:block;max-width:100%;height:auto}
 ul{list-style:none}
 .hl{color:var(--hl-fg);background:var(--hl-bg);font-weight:700;padding:0 var(--hl-pad);border-radius:3px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
 
-.page{min-height:100vh;scroll-snap-align:start;padding:56px 64px;display:flex;flex-direction:column;justify-content:center}
+/* 섹션 = 16:9 슬라이드 비율 */
+.page{aspect-ratio:16/9;scroll-snap-align:start;padding:40px 64px;display:flex;flex-direction:column;justify-content:center;border-bottom:1px solid var(--line)}
 .wrap{width:100%;max-width:1312px;margin:0 auto}
 .label{font-size:13px;font-weight:700;letter-spacing:.06em;color:var(--sub)}
 .card{background:var(--card);border-radius:16px}
@@ -64,7 +65,7 @@ ul{list-style:none}
 
 .media{display:grid;gap:14px}
 .media figure{overflow:hidden;background:var(--card);border-radius:16px}
-.media img{width:100%;max-height:36vh;object-fit:contain;background:#FFFFFF}
+.media img{width:100%;max-height:min(36vh,300px);object-fit:contain;background:#FFFFFF}
 .media figure{border:1px solid var(--line)}
 .media .dark img{background:#111111}
 .media figcaption{font-size:13px;color:var(--sub);padding:8px 14px}
@@ -78,10 +79,11 @@ ul{list-style:none}
 .foot dl{margin-top:14px;display:grid;grid-template-columns:72px 1fr;gap:6px 16px}
 .foot dt{color:var(--sub)}
 .foot dd a{text-decoration:none;border-bottom:1px solid var(--link-line)}
-.page.foot{min-height:auto;padding-top:24px}
+.page.foot{aspect-ratio:auto;padding-top:24px;border-bottom:0}
 .print-only{display:none}
 
 @media screen and (max-width:1000px){
+  .page{aspect-ratio:auto}
   .proj .wrap{grid-template-columns:1fr;gap:28px}
   .media img{max-height:none}
   .toc{grid-template-columns:1fr}
@@ -89,19 +91,19 @@ ul{list-style:none}
 }
 @media screen and (max-width:640px){
   html{scroll-snap-type:none}
-  .page{min-height:auto;padding:44px 16px}
+  .page{padding:44px 16px}
   .hero h1{font-size:36px}
   .proj h2{font-size:26px}
   .points li{grid-template-columns:1fr;gap:4px}
   .scope,.hero .facts,.foot dl{grid-template-columns:64px 1fr}
 }
 
-/* 인쇄: A4 가로, 섹션 1개 = 1페이지 */
-@page{size:A4 landscape;margin:0}
+/* 인쇄: 16:9(1440×810), 섹션 1개 = 1페이지 */
+@page{size:1440px 810px;margin:0}
 @media print{
-  html{zoom:.78;scroll-snap-type:none}
+  html{scroll-snap-type:none}
   body{-webkit-print-color-adjust:exact;print-color-adjust:exact}
-  .page{height:1010px;min-height:0;overflow:hidden;break-after:page;page-break-after:always;padding:56px 64px}
+  .page{aspect-ratio:auto;height:806px;min-height:0;overflow:hidden;break-after:page;page-break-after:always;padding:36px 64px;border-bottom:0}
   .page:last-child{break-after:auto;page-break-after:auto}
   .page.foot{display:none}
   .print-only{display:block}
@@ -109,7 +111,7 @@ ul{list-style:none}
   .proj .wrap{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px}
   .toc{grid-template-columns:repeat(3,1fr)}
   .foot .wrap{grid-template-columns:1fr 1fr}
-  .media img{max-height:330px}
+  .media img{max-height:290px}
   .links a::after{content:" (" attr(data-url) ")";font-weight:400;color:var(--sub);font-size:13px}
 }
 </style>
@@ -122,6 +124,8 @@ ul{list-style:none}
     <h1>백주은</h1>
     <dl class="facts">
       <dt>학교</dt><dd>경북대학교 컴퓨터학부 · 2027.02 졸업예정</dd>
+      <dt>학점</dt><dd>4.18 / 4.5</dd>
+      <dt>어학</dt><dd>TOEIC 840 · TOEIC Speaking IH</dd>
       <dt>자격</dt><dd>SQLD · ADsP</dd>
       <dt>이메일</dt><dd><a href="mailto:jueun1827@naver.com">jueun1827@naver.com</a></dd>
       <dt>GitHub</dt><dd><a href="https://github.com/gogumajoha" target="_blank" rel="noopener">github.com/gogumajoha</a></dd>
