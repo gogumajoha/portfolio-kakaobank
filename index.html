@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>백주은 포트폴리오</title>
+<meta name="description" content="백주은 · 경북대학교 컴퓨터학부 · 의도 분류, 오탐·폴백 처리, 테스트·QA, 운영 자동화 프로젝트 3건">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+/* 테마 A(기본): 어두운 배경 */
+:root{
+  --bg:#1A1A1A; --card:#262626; --text:#FFFFFF; --sub:#BDBDBD; --line:#3A3A3A;
+  --yellow:#FFE300;            /* kakaobank.com --primary */
+  --hl-fg:var(--yellow); --hl-bg:transparent; --hl-pad:0;   /* 숫자 강조 */
+  --title:var(--yellow);
+  --tag-fg:#BDBDBD; --tag-line:#4A4A4A;
+  --cat-fg:#1A1A1A; --cat-bg:var(--yellow);     /* 강조점 라벨 */
+  --link:#FFFFFF; --link-line:var(--yellow);
+}
+/* 테마 B(인쇄용): 연노랑 배경, 노란색 위 검정 글자 */
+:root[data-theme="b"]{
+  --hl-pad:.15em;
+  --bg:#FFF9D6; --card:#FFFFFF; --text:#1A1A1A; --sub:#4A4A4A; --line:#E8E0B0;
+  --hl-fg:#1A1A1A; --hl-bg:var(--yellow);
+  --title:#1A1A1A;
+  --tag-fg:#4A4A4A; --tag-line:#D9D0A0;
+  --cat-fg:#1A1A1A; --cat-bg:var(--yellow);
+  --link:#1A1A1A; --link-line:#1A1A1A;
+}
+@media print{
+  :root{
+    --hl-pad:.15em;
+    --bg:#FFF9D6; --card:#FFFFFF; --text:#1A1A1A; --sub:#4A4A4A; --line:#E8E0B0;
+    --hl-fg:#1A1A1A; --hl-bg:var(--yellow);
+    --title:#1A1A1A;
+    --tag-fg:#4A4A4A; --tag-line:#D9D0A0;
+    --link:#1A1A1A; --link-line:#1A1A1A;
+  }
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-snap-type:y proximity;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--text);font-family:'Pretendard Variable',Pretendard,-apple-system,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;font-size:16px;line-height:1.6;word-break:keep-all;overflow-wrap:anywhere}
+a{color:var(--link)}
+img{display:block;max-width:100%;height:auto}
+ul{list-style:none}
+.hl{color:var(--hl-fg);background:var(--hl-bg);font-weight:700;padding:0 var(--hl-pad);border-radius:3px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+
+.page{min-height:100vh;scroll-snap-align:start;padding:56px 64px;display:flex;flex-direction:column;justify-content:center}
+.wrap{width:100%;max-width:1312px;margin:0 auto}
+.label{font-size:13px;font-weight:700;letter-spacing:.06em;color:var(--sub)}
+.card{background:var(--card);border-radius:16px}
+
+/* 상단 */
+.hero h1{font-size:44px;font-weight:800;color:var(--title);letter-spacing:-.02em;line-height:1.2;margin-top:10px}
+.hero .facts{margin-top:16px;display:grid;grid-template-columns:72px 1fr;gap:6px 16px}
+.hero .facts dt{color:var(--sub)}
+.hero .facts dd a{text-decoration:none;border-bottom:1px solid var(--link-line)}
+.toc{margin-top:40px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.toc a{display:block;padding:20px 22px;text-decoration:none}
+.toc b{display:block;font-size:13px;color:var(--sub);font-weight:700}
+.toc strong{display:block;margin-top:4px;font-size:20px;font-weight:800;color:var(--title)}
+.toc span{display:block;margin-top:6px;color:var(--sub)}
+
+/* 프로젝트 */
+.proj .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:center}
+.proj h2{font-size:32px;font-weight:800;color:var(--title);letter-spacing:-.02em;line-height:1.25;margin-top:6px}
+.meta{margin-top:8px;color:var(--sub)}
+.badge{display:inline-block;margin-top:10px;font-size:13px;font-weight:700;color:var(--cat-fg);background:var(--cat-bg);border-radius:6px;padding:2px 10px}
+.scope{margin-top:16px;padding:14px 18px;display:grid;grid-template-columns:72px 1fr;gap:4px 16px}
+.scope dt{color:var(--sub)}
+.scope dd{font-weight:600}
+.summary{margin-top:16px;font-weight:700}
+.keys{margin-top:8px;display:grid;gap:2px}
+.keys li::before{content:"· ";color:var(--sub)}
+.points{margin-top:16px;display:grid;gap:10px}
+.points li{display:grid;grid-template-columns:112px 1fr;gap:12px;align-items:start}
+.cat{display:inline-block;font-size:13px;font-weight:700;color:var(--cat-fg);background:var(--cat-bg);border-radius:6px;padding:1px 8px;line-height:1.7;text-align:center;margin-top:1px;white-space:nowrap;justify-self:start}
+.tags{margin-top:18px;display:flex;flex-wrap:wrap;gap:6px}
+.tags span{font-size:13px;color:var(--tag-fg);border:1px solid var(--tag-line);border-radius:999px;padding:2px 10px}
+.links{margin-top:14px;display:flex;flex-wrap:wrap;gap:6px 18px;font-weight:700}
+.links a{text-decoration:none;border-bottom:2px solid var(--link-line)}
+
+.media{display:grid;gap:14px}
+.media figure{overflow:hidden;background:var(--card);border-radius:16px}
+.media img{width:100%;max-height:36vh;object-fit:contain;background:#FFFFFF}
+.media .dark img{background:#111111}
+.media figcaption{font-size:13px;color:var(--sub);padding:8px 14px}
+
+/* 하단 */
+.foot .wrap{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.foot .card{padding:24px 26px}
+.foot h2{font-size:20px;font-weight:800;color:var(--title)}
+.foot .tags{margin-top:14px}
+.foot .tags span{font-size:16px;color:var(--text)}
+.foot dl{margin-top:14px;display:grid;grid-template-columns:72px 1fr;gap:6px 16px}
+.foot dt{color:var(--sub)}
+.foot dd a{text-decoration:none;border-bottom:1px solid var(--link-line)}
+.page.foot{min-height:auto;padding-top:24px}
+.print-only{display:none}
+
+@media screen and (max-width:1000px){
+  .proj .wrap{grid-template-columns:1fr;gap:28px}
+  .media img{max-height:none}
+  .toc{grid-template-columns:1fr}
+  .foot .wrap{grid-template-columns:1fr}
+}
+@media screen and (max-width:640px){
+  html{scroll-snap-type:none}
+  .page{min-height:auto;padding:44px 16px}
+  .hero h1{font-size:36px}
+  .proj h2{font-size:26px}
+  .points li{grid-template-columns:1fr;gap:4px}
+  .scope,.hero .facts,.foot dl{grid-template-columns:64px 1fr}
+}
+
+/* 인쇄: A4 가로, 섹션 1개 = 1페이지 */
+@page{size:A4 landscape;margin:0}
+@media print{
+  html{zoom:.78;scroll-snap-type:none}
+  body{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .page{height:1010px;min-height:0;overflow:hidden;break-after:page;page-break-after:always;padding:56px 64px}
+  .page:last-child{break-after:auto;page-break-after:auto}
+  .page.foot{display:none}
+  .print-only{display:block}
+  .page:nth-last-child(1 of .page){break-after:auto}
+  .proj .wrap{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px}
+  .toc{grid-template-columns:repeat(3,1fr)}
+  .foot .wrap{grid-template-columns:1fr 1fr}
+  .media img{max-height:330px}
+  .links a::after{content:" (" attr(data-url) ")";font-weight:400;color:var(--sub);font-size:13px}
+}
+</style>
+<script>
+/* ?theme=b 로 인쇄용 테마 미리보기 */
+try{ if(new URLSearchParams(location.search).get('theme')==='b') document.documentElement.setAttribute('data-theme','b'); }catch(e){}
+</script>
+</head>
+<body>
+
+<header class="page hero" id="top">
+  <div class="wrap">
+    <p class="label">PORTFOLIO · 2026</p>
+    <h1>백주은</h1>
+    <dl class="facts">
+      <dt>학교</dt><dd>경북대학교 컴퓨터학부 · 2027.02 졸업예정</dd>
+      <dt>자격</dt><dd>SQLD · ADsP</dd>
+      <dt>이메일</dt><dd><a href="mailto:jueun1827@naver.com">jueun1827@naver.com</a></dd>
+      <dt>GitHub</dt><dd><a href="https://github.com/gogumajoha" target="_blank" rel="noopener">github.com/gogumajoha</a></dd>
+      <dt class="print-only">도구</dt><dd class="print-only">Python · SQL · Claude Code · n8n · Excel / Google Sheets</dd>
+    </dl>
+    <nav class="toc" aria-label="프로젝트 목록">
+      <a class="card" href="#robot"><b>01</b><strong>홈케어 로봇 AI</strong><span>의도 분류 · 다회 대화 테스트</span></a>
+      <a class="card" href="#itda"><b>02</b><strong>잇다</strong><span>규칙과 AI 판단 분리 · 확인 필요 목록</span></a>
+      <a class="card" href="#before"><b>03</b><strong>BEFORE</strong><span>매일 자동 실행 · AI 실패 시 대체 처리</span></a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- 01 홈케어 로봇 AI -->
+<section class="page proj" id="robot" aria-labelledby="robot-h">
+  <div class="wrap">
+    <div class="text">
+      <p class="label">01</p>
+      <h2 id="robot-h">홈케어 로봇 AI</h2>
+      <p class="meta">2026.01 – 2026.02 · 베트남 다낭 해외 인턴 (Paracel Technology Solutions) · 20인 프로젝트</p>
+      <dl class="scope card">
+        <dt>담당 범위</dt><dd>AI 파트 (의도 분류 · 대화 · 사물 인식)</dd>
+        <dt>기여도</dt><dd><span class="hl">100%</span> (담당 범위 기준)</dd>
+      </dl>
+      <p class="summary">로봇이 사용자의 말을 이해하고 대화하는 AI 모듈 개발</p>
+      <ul class="keys">
+        <li>대화 모듈 첫 응답 <span class="hl">4.5초에서 1.9초</span>로 단축</li>
+        <li><span class="hl">20인</span> 프로젝트의 AI 파트 전담</li>
+      </ul>
+      <ul class="points">
+        <li><span class="cat">의도 분류·규칙</span><span>사용자 말을 대화·인사·이동 3가지 의도로 분류, 이동 명령은 순서대로 실행할 동작 목록으로 변환</span></li>
+        <li><span class="cat">테스트·QA</span><span>복용 약·알레르기를 기억하는지 묻는 5단계 다회 대화 시나리오로 점검</span></li>
+        <li><span class="cat">오탐·폴백</span><span>등록하지 않은 물건은 '모름'으로 처리해 엉뚱한 물건 이름 답변 차단</span></li>
+        <li><span class="cat">운영·성능</span><span>응답 지연 원인을 프롬프트 길이로 좁혀 첫 응답 시간 단축</span></li>
+      </ul>
+      <p class="tags" aria-label="사용 기술"><span>Python</span><span>FunctionGemma-270M</span><span>LFM2-350M</span><span>RAG</span><span>DINOv2</span><span>FAISS</span><span>llama.cpp</span></p>
+    </div>
+    <div class="media">
+      <figure><img src="assets/robot-testcase.webp" width="827" height="881" loading="lazy" alt="다회 대화 테스트 케이스 표: 순서, 사용자 입력, 테스트 포인트, 예상 결과 5단계"><figcaption>다회 대화 테스트 케이스 표</figcaption></figure>
+      <figure><img src="assets/robot-intent.webp" width="1446" height="856" loading="lazy" alt="음성 입력부터 의도 분류, 응답 생성, 주행 명령까지의 처리 흐름도"><figcaption>의도 분류 처리 흐름</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- 02 잇다 -->
+<section class="page proj" id="itda" aria-labelledby="itda-h">
+  <div class="wrap">
+    <div class="text">
+      <p class="label">02</p>
+      <h2 id="itda-h">잇다</h2>
+      <p class="meta">2026.05 – 2026.10 · 6인 팀 · 카카오테크캠퍼스 4기</p>
+      <dl class="scope card">
+        <dt>담당 범위</dt><dd>PM · AI 파트 (매칭 에이전트)</dd>
+        <dt>기여도</dt><dd><span class="hl">50%</span> (AI 파트 2인 중)</dd>
+      </dl>
+      <p class="summary">기관마다 흩어진 장애아동 관찰 기록을 아이별로 잇는 AI 서비스</p>
+      <ul class="keys">
+        <li>검증 <span class="hl">405건</span> 중 자동 확정 <span class="hl">382건</span>, 오매칭 <span class="hl">0건</span></li>
+        <li>자체 채점 <span class="hl">96%</span> vs 3줄 기준선 <span class="hl">100%</span></li>
+      </ul>
+      <ul class="points">
+        <li><span class="cat">의도 분류·규칙</span><span>이름이 분명한 기록은 규칙으로 바로 판정, 애매한 기록만 AI가 판단</span></li>
+        <li><span class="cat">오탐·폴백</span><span>AI가 확신하지 못한 기록은 '확인 필요' 목록으로 보내 교사가 직접 처리</span></li>
+        <li><span class="cat">오탐·폴백</span><span>잘못 연결하느니 연결하지 않는 기준, 승인된 기록만 저장·공유</span></li>
+        <li><span class="cat">테스트·QA</span><span>자체 채점 96%일 때 3줄짜리 단순 코드가 100%를 받아 평가 세트 결함 발견, 튜닝용과 검증용 데이터 분리</span></li>
+      </ul>
+      <p class="tags" aria-label="사용 기술"><span>Python</span><span>LangGraph</span><span>FastAPI</span><span>PostgreSQL</span><span>Docker</span><span>AWS EC2</span></p>
+      <p class="links">
+        <a href="https://iitda.duckdns.org" data-url="iitda.duckdns.org" target="_blank" rel="noopener">서비스</a>
+        <a href="https://github.com/kakaotechcampus-4/ktc4-kyungpook-2" data-url="github.com/kakaotechcampus-4/ktc4-kyungpook-2" target="_blank" rel="noopener">GitHub</a>
+      </p>
+    </div>
+    <div class="media">
+      <figure><img src="assets/itda-gates.webp" width="1600" height="889" loading="lazy" alt="사람 승인 2곳 설계: 기록 저장 전 선생님 검토, 정보 발송 전 선생님 승인"><figcaption>사람 확인 단계: 기록 저장 전 · 정보 발송 전</figcaption></figure>
+      <figure><img src="assets/itda-parent-app.webp" width="1600" height="446" loading="lazy" alt="학부모용 모바일 앱 화면 설계 7개: 가입, 기관 권한, 아이 정보, 요청사항, 일지, 리포트"><figcaption>학부모 앱 화면 설계</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- 03 BEFORE -->
+<section class="page proj" id="before" aria-labelledby="before-h">
+  <div class="wrap">
+    <div class="text">
+      <p class="label">03</p>
+      <h2 id="before-h">BEFORE</h2>
+      <p class="meta">2026.03 – 2026.06 · 5인 팀 · 산학협력 프로젝트</p>
+      <span class="badge">산학협력 프로젝트 경진대회 최우수상</span>
+      <dl class="scope card">
+        <dt>담당 범위</dt><dd>기획 · 백엔드</dd>
+        <dt>기여도</dt><dd><span class="hl">50%</span> (기획·백엔드 2인 중)</dd>
+      </dl>
+      <p class="summary">주식 하락 위험을 예측·설명하는 서비스, 토스 미니앱 출시</p>
+      <ul class="keys">
+        <li>토스 미니앱 누적 사용자 <span class="hl">1만 명</span></li>
+        <li>설명 생성 처리 시간 <span class="hl">4.8배</span> 단축</li>
+      </ul>
+      <ul class="points">
+        <li><span class="cat">운영·배포</span><span>매일 오전 6시 30분 자동 실행: 가격 수집, 위험 예측, 설명 생성, 알림 발송</span></li>
+        <li><span class="cat">오탐·폴백</span><span>AI 설명 생성이 실패하면 정해진 문장 틀로 대체, 위험 알림은 별도 단계로 분리해 항상 발송</span></li>
+        <li><span class="cat">의도 분류·규칙</span><span>'매수·추천·보장' 금칙어 검사로 투자 권유 표현 차단</span></li>
+        <li><span class="cat">운영·성능</span><span>설명 생성 병렬 처리로 6분 1초에서 1분 15초로 단축</span></li>
+      </ul>
+      <p class="tags" aria-label="사용 기술"><span>Python</span><span>FastAPI</span><span>PostgreSQL</span><span>GitHub Actions</span><span>Docker</span><span>AWS EC2</span><span>Upstage Solar LLM</span></p>
+      <p class="links">
+        <a href="https://zeri-client.vercel.app" data-url="zeri-client.vercel.app" target="_blank" rel="noopener">서비스</a>
+        <a href="https://youtu.be/aG20x-B75vw" data-url="youtu.be/aG20x-B75vw" target="_blank" rel="noopener">데모 영상</a>
+        <a href="https://github.com/JusikCool/ZERi-server" data-url="github.com/JusikCool/ZERi-server" target="_blank" rel="noopener">GitHub (서버)</a>
+        <a href="https://github.com/JusikCool/ZERi-client" data-url="github.com/JusikCool/ZERi-client" target="_blank" rel="noopener">GitHub (클라이언트)</a>
+      </p>
+    </div>
+    <div class="media">
+      <figure class="dark"><img src="assets/before-pipeline.webp" width="1600" height="819" loading="lazy" alt="매일 자동으로 도는 서비스 파이프라인: 매일 오전 6시 30분 데이터 수집, 예측, 설명 생성, 알림 자동 실행"><figcaption>매일 자동 실행 파이프라인</figcaption></figure>
+      <figure class="dark"><img src="assets/before-app.webp" width="1600" height="900" loading="lazy" alt="서비스 화면 3장: 변동성 큰 종목, 종목별 하락 위험 예측 차트, 예측 설명"><figcaption>서비스 화면: 종목별 하락 위험 예측 · 설명</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="page foot" id="tools">
+  <div class="wrap">
+    <div class="card">
+      <h2>사용 가능 도구</h2>
+      <p class="tags"><span>Python</span><span>SQL</span><span>Claude Code</span><span>n8n</span><span>Excel / Google Sheets</span></p>
+    </div>
+    <div class="card">
+      <h2>연락처</h2>
+      <dl>
+        <dt>이메일</dt><dd><a href="mailto:jueun1827@naver.com">jueun1827@naver.com</a></dd>
+        <dt>GitHub</dt><dd><a href="https://github.com/gogumajoha" target="_blank" rel="noopener">github.com/gogumajoha</a></dd>
+      </dl>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
