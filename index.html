@@ -8,35 +8,15 @@
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <style>
-/* 테마 A(기본): 어두운 배경 */
+/* 흰 배경 테마 (화면·인쇄 공통). 노란색은 글자색으로 쓰지 않고 검정 글자의 바탕으로만 사용 */
 :root{
-  --bg:#1A1A1A; --card:#262626; --text:#FFFFFF; --sub:#BDBDBD; --line:#3A3A3A;
+  --bg:#FFFFFF; --card:#F5F5F5; --text:#1A1A1A; --sub:#4A4A4A; --line:#E5E5E5;
   --yellow:#FFE300;            /* kakaobank.com --primary */
-  --hl-fg:var(--yellow); --hl-bg:transparent; --hl-pad:0;   /* 숫자 강조 */
-  --title:var(--yellow);
-  --tag-fg:#BDBDBD; --tag-line:#4A4A4A;
-  --cat-fg:#1A1A1A; --cat-bg:var(--yellow);     /* 강조점 라벨 */
-  --link:#FFFFFF; --link-line:var(--yellow);
-}
-/* 테마 B(인쇄용): 연노랑 배경, 노란색 위 검정 글자 */
-:root[data-theme="b"]{
-  --hl-pad:.15em;
-  --bg:#FFF9D6; --card:#FFFFFF; --text:#1A1A1A; --sub:#4A4A4A; --line:#E8E0B0;
-  --hl-fg:#1A1A1A; --hl-bg:var(--yellow);
+  --hl-fg:#1A1A1A; --hl-bg:var(--yellow); --hl-pad:.15em;   /* 숫자 강조 */
   --title:#1A1A1A;
-  --tag-fg:#4A4A4A; --tag-line:#D9D0A0;
-  --cat-fg:#1A1A1A; --cat-bg:var(--yellow);
+  --tag-fg:#4A4A4A; --tag-line:#D6D6D6;
+  --cat-fg:#1A1A1A; --cat-bg:var(--yellow);     /* 강조점 라벨 */
   --link:#1A1A1A; --link-line:#1A1A1A;
-}
-@media print{
-  :root{
-    --hl-pad:.15em;
-    --bg:#FFF9D6; --card:#FFFFFF; --text:#1A1A1A; --sub:#4A4A4A; --line:#E8E0B0;
-    --hl-fg:#1A1A1A; --hl-bg:var(--yellow);
-    --title:#1A1A1A;
-    --tag-fg:#4A4A4A; --tag-line:#D9D0A0;
-    --link:#1A1A1A; --link-line:#1A1A1A;
-  }
 }
 
 *{box-sizing:border-box;margin:0;padding:0}
@@ -85,6 +65,7 @@ ul{list-style:none}
 .media{display:grid;gap:14px}
 .media figure{overflow:hidden;background:var(--card);border-radius:16px}
 .media img{width:100%;max-height:36vh;object-fit:contain;background:#FFFFFF}
+.media figure{border:1px solid var(--line)}
 .media .dark img{background:#111111}
 .media figcaption{font-size:13px;color:var(--sub);padding:8px 14px}
 
@@ -132,10 +113,6 @@ ul{list-style:none}
   .links a::after{content:" (" attr(data-url) ")";font-weight:400;color:var(--sub);font-size:13px}
 }
 </style>
-<script>
-/* ?theme=b 로 인쇄용 테마 미리보기 */
-try{ if(new URLSearchParams(location.search).get('theme')==='b') document.documentElement.setAttribute('data-theme','b'); }catch(e){}
-</script>
 </head>
 <body>
 
